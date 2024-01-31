@@ -33,7 +33,7 @@ public class ReticalMovement : MonoBehaviour
     {
         ShouldMove = false;
         dir = Vector3.zero;
-        shooted.ShootPosition = Camera.main.ViewportToWorldPoint(Retical.transform.position);
+        shooted.ShootPosition = Camera.main.ViewportToScreenPoint(Retical.transform.position);
 
         Debug.Log(shooted.ShootPosition);
     }

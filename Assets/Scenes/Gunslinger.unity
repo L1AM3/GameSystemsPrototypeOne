@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -171,9 +171,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: -6072391574331347817, guid: 59c89bfdd5581354994b514ad2ea4aa6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 59c89bfdd5581354994b514ad2ea4aa6, type: 3}
       propertyPath: m_Name
       value: reverler_low
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 59c89bfdd5581354994b514ad2ea4aa6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995158097579760350, guid: 59c89bfdd5581354994b514ad2ea4aa6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2849074806365430823, guid: 59c89bfdd5581354994b514ad2ea4aa6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333565177810573903, guid: 59c89bfdd5581354994b514ad2ea4aa6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998121822337434003, guid: 59c89bfdd5581354994b514ad2ea4aa6, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -192,7 +216,7 @@ GameObject:
   - component: {fileID: 111807758}
   - component: {fileID: 111807757}
   - component: {fileID: 111807756}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -367,7 +391,7 @@ GameObject:
   - component: {fileID: 174777135}
   - component: {fileID: 174777136}
   - component: {fileID: 174777137}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AnimationPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -427,7 +451,7 @@ MonoBehaviour:
   Bullet: {fileID: 4875446898879445820, guid: 72991b2c616806b49bae054e55b4ccc1, type: 3}
   ShootPosition: {x: 0, y: 0, z: 0}
   BulletSpawn: {fileID: 1492000563}
-  BulletSpeed: 1000
+  BulletSpeed: 10000
 --- !u!1 &206896974
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,7 +506,7 @@ MonoBehaviour:
   Bullet: {fileID: 4875446898879445820, guid: 72991b2c616806b49bae054e55b4ccc1, type: 3}
   ShootPosition: {x: 0, y: 0, z: 0}
   BulletSpawn: {fileID: 1041189080}
-  BulletSpeed: 1000
+  BulletSpeed: 10000
 --- !u!4 &206896977
 Transform:
   m_ObjectHideFlags: 0
@@ -673,6 +697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1027497677}
+  - component: {fileID: 1027497678}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -689,7 +714,7 @@ Transform:
   m_GameObject: {fileID: 1027497675}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 13.745, y: 1.644, z: 0.23404068}
+  m_LocalPosition: {x: 8.83, y: 0, z: 0.23404068}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -698,6 +723,22 @@ Transform:
   - {fileID: 1466669846}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1027497678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027497675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd5bfde5355935b408e6ff3a2a0f5dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxDecisionRange: {x: 5, y: 9}
+  MoveSpeed: 2
+  DecisionTime: 1
+  EnemyAnimator: {fileID: 206896975}
 --- !u!1 &1041189079
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,9 +835,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 401261059139932009, guid: e7ca08236c299594cba001ce79f3e591, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7ca08236c299594cba001ce79f3e591, type: 3}
       propertyPath: m_Name
       value: cowboy hat latest
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e7ca08236c299594cba001ce79f3e591, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147876264314993998, guid: e7ca08236c299594cba001ce79f3e591, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8020226924587334960, guid: e7ca08236c299594cba001ce79f3e591, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -813,7 +870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1165194994}
   - component: {fileID: 1165194995}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -829,7 +886,7 @@ Transform:
   m_GameObject: {fileID: 1165194993}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.481, y: 1.644, z: 0.57}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -952,7 +1009,7 @@ Transform:
   m_GameObject: {fileID: 1257701192}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.679, z: 0}
   m_LocalScale: {x: 200, y: 0.5, z: 200}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1079,7 +1136,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shooted: {fileID: 174777137}
-  Retical: {fileID: 1593970407}
+  TargetMask:
+    serializedVersion: 2
+    m_Bits: 1
+  Reticle: {fileID: 1593970407}
   AimSpeed: 250
 --- !u!4 &1400109947 stripped
 Transform:
@@ -1100,7 +1160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1492000563}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
@@ -1445,7 +1505,7 @@ Transform:
   m_GameObject: {fileID: 1943216133}
   serializedVersion: 2
   m_LocalRotation: {x: 0.09229593, y: 0.7010574, z: -0.09229593, w: 0.7010574}
-  m_LocalPosition: {x: -2.849, y: 3.021, z: -1.85}
+  m_LocalPosition: {x: -3.18, y: 1.8, z: -2.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

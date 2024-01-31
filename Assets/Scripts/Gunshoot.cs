@@ -11,7 +11,7 @@ public class Gunshoot : MonoBehaviour
 
     public void GunShot()
     {
-        Vector3 dir = BulletSpawn.transform.position - ShootPosition;
+        Vector3 dir = ShootPosition - BulletSpawn.transform.position;
         GameObject SpawnedBullet = Instantiate(Bullet, BulletSpawn.transform.position, Quaternion.identity);
         SpawnedBullet.GetComponent<Rigidbody>().velocity = dir.normalized * BulletSpeed * Time.deltaTime;
     }

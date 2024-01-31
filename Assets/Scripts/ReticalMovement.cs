@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class ReticalMovement : MonoBehaviour
 {
     public Gunshoot shooted;
-    public Image Retical;
+    public LayerMask TargetMask;
+    public Image Reticle;
     public float AimSpeed;
     private Vector3 lastMousePosition;
     private Vector3 dir = Vector3.zero;
@@ -25,7 +26,7 @@ public class ReticalMovement : MonoBehaviour
         if (!ShouldMove) return;
 
         dir += (Input.mousePosition - lastMousePosition);
-        Retical.transform.position += dir.normalized * AimSpeed * Time.deltaTime;
+        Reticle.transform.position += dir.normalized * AimSpeed * Time.deltaTime;
         lastMousePosition = Input.mousePosition;
     }
 
@@ -33,7 +34,13 @@ public class ReticalMovement : MonoBehaviour
     {
         ShouldMove = false;
         dir = Vector3.zero;
-        shooted.ShootPosition = Camera.main.ViewportToScreenPoint(Retical.transform.position);
+        //shooted.ShootPosition = Camera.main.ViewportToScreenPoint(Retical.transform.position);
+
+        Ray ray = Camera.main.ScreenPointToRay(Reticle.transform.position);
+        if (Physics.Raycast(ray, out RaycastHit raycasthit, 999f, TargetMask))
+        {
+            shooted.ShootPosition = raycasthit.point;
+        }
 
         Debug.Log(shooted.ShootPosition);
     }

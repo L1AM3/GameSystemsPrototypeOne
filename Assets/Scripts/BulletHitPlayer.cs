@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletHit : MonoBehaviour
+public class BulletHitPlayer : MonoBehaviour
 {
+    public Animator Animator;
+
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log($"Ouch: {collision.gameObject.name}");
+            Animator.SetBool("IsShot", true);
     }
 }

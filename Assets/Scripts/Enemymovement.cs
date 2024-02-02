@@ -41,7 +41,7 @@ public class Enemymovement : MonoBehaviour
 
     private void MakeDecision()
     {
-        int Decision = Random.Range(0, 7);
+        int Decision = Random.Range(0, 5);
 
         switch (Decision)
         {

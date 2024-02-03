@@ -16,18 +16,56 @@ public class ReticalMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Cursor.visible = false;
+        StartCoroutine(CursorFix());
+    }
+
+    private IEnumerator CursorFix()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
         lastMousePosition = Input.mousePosition;
-        Cursor.visible = false;
+
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        Cursor.lockState = CursorLockMode.None;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (!ShouldMove) return;
 
         dir += (Input.mousePosition - lastMousePosition);
         Reticle.transform.position += dir.normalized * AimSpeed * Time.deltaTime;
         lastMousePosition = Input.mousePosition;
+
+        if (Reticle.transform.position.x > Camera.main.scaledPixelWidth)
+        {
+            Reticle.transform.position = new Vector2 (Camera.main.scaledPixelWidth, Reticle.transform.position.y);
+            dir = Vector3.zero;
+        }
+
+        if (Reticle.transform.position.y > Camera.main.scaledPixelHeight)
+        {
+            Reticle.transform.position = new Vector2(Reticle.transform.position.x, Camera.main.scaledPixelHeight);
+            dir = Vector3.zero;
+        }
+
+        if (Reticle.transform.position.x < 0)
+        {
+            Reticle.transform.position = new Vector2(0, Reticle.transform.position.y);
+            dir = Vector3.zero;
+        }
+
+        if (Reticle.transform.position.y < 0)
+        {
+            Reticle.transform.position = new Vector2(Reticle.transform.position.x, 0);
+            dir = Vector3.zero;
+        }
     }
 
     public void Shoot()

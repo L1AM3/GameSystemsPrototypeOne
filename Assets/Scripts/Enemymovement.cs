@@ -7,6 +7,7 @@ public class Enemymovement : MonoBehaviour
 {
     private int DecisionCount = 0;
     private int MaxDecisionCount;
+    public Gundraw PlayerDraw;
     public Vector2Int MaxDecisionRange;
     public float MoveSpeed;
     public float DecisionTime;
@@ -17,7 +18,20 @@ public class Enemymovement : MonoBehaviour
     private void Start()
     {
         MaxDecisionCount = Random.Range(MaxDecisionRange.x, MaxDecisionRange.y);
+        PlayerDraw.ShotGun += PlayerGunShoot;
     }
+
+    private void PlayerGunShoot()
+    {
+        DecisionCount = MaxDecisionCount + 1;
+    }
+
+    private IEnumerator DrawGunDelay()
+    {
+        yield return new WaitForSeconds(0.66f);
+        EnemyAnimator.SetBool("HasDrawn", true);
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -33,7 +47,7 @@ public class Enemymovement : MonoBehaviour
         if (DecisionCount >= MaxDecisionCount)
         {
             moveDir = Vector3.zero;
-            EnemyAnimator.SetBool("HasDrawn", true);
+            StartCoroutine(DrawGunDelay());
         }
 
         transform.position += moveDir.normalized * MoveSpeed * Time.deltaTime;

@@ -16,13 +16,12 @@ public class ReticalMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Cursor.visible = false;
-        StartCoroutine(CursorFix());
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private IEnumerator CursorFix()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         lastMousePosition = Input.mousePosition;
 
         yield return new WaitForEndOfFrame();
@@ -39,7 +38,7 @@ public class ReticalMovement : MonoBehaviour
 
         if (!ShouldMove) return;
 
-        dir += (Input.mousePosition - lastMousePosition);
+        dir += new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")).normalized;
         Reticle.transform.position += dir.normalized * AimSpeed * Time.deltaTime;
         lastMousePosition = Input.mousePosition;
 
